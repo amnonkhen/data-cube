@@ -1,0 +1,38 @@
+schema:
+- db: ingest
+  tables:
+  - table: project
+    collection: project
+    pipeline:
+    - $project:
+        project_short_name: '$content.project_core.project_short_name'
+        organ1: { $arrayElemAt: [ '$organ.ontologies.ontology_label', 0 ] }
+        organ2: { $arrayElemAt: [ '$organ.ontologies.ontology_label', 1 ] }
+        organ3: { $arrayElemAt: [ '$organ.ontologies.ontology_label', 2 ] }
+        organ4: { $arrayElemAt: [ '$organ.ontologies.ontology_label', 3 ] }
+        cell_count: '$cellCount'
+    columns:
+    - Name: project_short_name
+      MongoType: string
+      SqlName: project_short_name
+      SqlType: varchar
+    - Name: organ1
+      MongoType: string
+      SqlName: organ1
+      SqlType: varchar
+    - Name: organ2
+      MongoType: string
+      SqlName: organ2
+      SqlType: varchar
+    - Name: organ3
+      MongoType: string
+      SqlName: organ3
+      SqlType: varchar
+    - Name: organ4
+      MongoType: string
+      SqlName: organ4
+      SqlType: varchar
+    - Name: cell_count
+      MongoType: float64
+      SqlName: cell_count
+      SqlType: numeric

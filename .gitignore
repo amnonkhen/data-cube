@@ -1,1 +1,14 @@
 .env
+.vscode
+
+mongobi_logs/
+*.pem
+*.key
+
+node_modules/
+.cubestore/
+
+.make/
+
+# mongo data files
+db/

@@ -1,8 +1,15 @@
+
+
 setup:
 	sudo apt install docker-compose
 
-start:
-	docker-compose up
+start: mongo.pem
+	docker-compose up -d
 
 start-docker:
-	service docker status
+	sudo service docker start
+
+mongo.pem:
+	echo "creating keys for mongo bi"
+	openssl req -newkey rsa:2048 -nodes -keyout test.key -x509 -days 365 -out certificate.pem
+	cat certificate.pem test.key > mongo.pem
