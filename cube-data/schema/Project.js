@@ -46,8 +46,38 @@ cube(`Project`, {
     projectShortName: {
       sql: `project_short_name`,
       type: `string`
+    },
+    wranglingState: {
+      sql: `wranglingState`,
+      type: `string`
+    },
+
+    cataloguedDate: {
+      sql: `cataloguedDate`,
+      type: 'time'
+    },
+    contentLastModified: {
+      sql: `contentLastModified`,
+      type: 'time'
+    },
+    submissionDate: {
+      sql: `submissionDate`,
+      type: 'time'
+    },
+    updateDate: {
+      sql: `updateDate`,
+      type: 'time'
+    },
+    isInCatalogue: {
+      sql: `isInCatalogue`,
+      type: 'boolean'
     }
   },
   
+  segments: {
+    isInCatalogue: {
+      sql: `${CUBE}.isInCatalogue = true`
+    },
+  },
   dataSource: `default`
 });

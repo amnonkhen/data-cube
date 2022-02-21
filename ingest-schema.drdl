@@ -11,6 +11,14 @@ schema:
         organ3: { $arrayElemAt: [ '$organ.ontologies.ontology_label', 2 ] }
         organ4: { $arrayElemAt: [ '$organ.ontologies.ontology_label', 3 ] }
         cell_count: '$cellCount'
+        catalogued_date: '$cataloguedDate'
+        dcpVersion: 1 
+        cataloguedDate: 1
+        contentLastModified: 1
+        submissionDate: 1
+        updateDate: 1 
+        isInCatalogue: 1
+        wranglingState: 1
     columns:
     - Name: project_short_name
       MongoType: string
@@ -36,3 +44,23 @@ schema:
       MongoType: float64
       SqlName: cell_count
       SqlType: numeric
+    - Name: cataloguedDate
+      MongoType: date
+      SqlName: cataloguedDate
+      SqlType: timestamp
+    - Name: contentLastModified
+      MongoType: date
+      SqlName: contentLastModified
+      SqlType: timestamp
+    - Name: submissionDate
+      MongoType: date
+      SqlName: submissionDate
+      SqlType: timestamp
+    - Name: updateDate
+      MongoType: date
+      SqlName: updateDate
+      SqlType: timestamp
+    - Name: isInCatalogue
+      MongoType: bool
+      SqlName: isInCatalogue
+      SqlType: boolean
