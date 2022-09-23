@@ -10,6 +10,11 @@ start-docker:
 	sudo service docker start
 
 mongo.pem:
-	echo "creating keys for mongo bi"
-	openssl req -newkey rsa:2048 -nodes -keyout test.key -x509 -days 365 -out certificate.pem
 	cat certificate.pem test.key > mongo.pem
+
+certificate.pem:
+	echo "creating keys for mongo bi"
+	openssl req -newkey rsa:2048 \
+				-nodes -keyout test.key \
+				-x509 -days 365 \
+				-out certificate.pem

@@ -12,3 +12,5 @@ node_modules/
 
 # mongo data files
 db/
+/.idea/
+/data/

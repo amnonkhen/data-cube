@@ -5,7 +5,7 @@ db.getCollection("project").aggregate(
         // Stage 1
         {
             $unwind: {
-                path: '$organ.ontologies',
+                path: '$technology.ontologies',
                 preserveNullAndEmptyArrays: false
             }
         },
@@ -16,8 +16,8 @@ db.getCollection("project").aggregate(
                 _id:0,
                 project_id: '$_id',
                 project_short_name: '$content.project_core.project_short_name',
-                ontology_label: '$organ.ontologies.ontology_label',
-                ontology: '$organ.ontologies.ontology', 
+                ontology_label: '$technology.ontologies.ontology_label',
+                ontology: '$tecnology.ontologies.ontology', 
             }
         }
     ],

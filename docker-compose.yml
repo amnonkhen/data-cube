@@ -13,28 +13,6 @@ services:
                 volumes:
                  - db-data:/data/db
                 restart: unless-stopped
-        cubejs:
-                ports:
-                 - 4000:4000
-                 - 3000:3000
-                volumes:
-                 - ./cube-data:/cube/conf
-                image:
-                        cubejs/cube
-                environment:
-                        - CUBEJS_DB_TYPE=mongobi
-                        - CUBEJS_DB_HOST=mongobi 
-                        - CUBEJS_DB_PORT=3307
-                        - CUBEJS_DB_NAME=ingest
-                        - CUBEJS_DB_USER=root
-                        - CUBEJS_DB_PASS=rootpassword
-                        - CUBEJS_API_SECRET=mySecret8*
-                        - CUBEJS_DB_SSL=true
-                        - CUBEJS_DB_SSL_REJECT_UNAUTHORIZED=false
-                        - CUBEJS_DEV_MODE=true
-                links:
-                - mongobi
-                - mongodb
         mongobi:
                 image: juky/mongobi:latest
                 ports:
